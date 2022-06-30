@@ -45,13 +45,13 @@ RUN touch start.sh \
     && tee -a start.sh <<< './launchNoVNC.sh &>/dev/null &' \
     && tee -a start.sh <<< 'exec qemu-system-x86_64 \' \
     && tee -a start.sh <<< '-enable-kvm \' \
-    && tee -a start.sh <<< '-cpu host -smp cores=4,threads=8 \' \
+    && tee -a start.sh <<< '-cpu host -smp cores=2,threads=1\' \
     && tee -a start.sh <<< '-drive file=./windows10.img,if=virtio \' \
     && tee -a start.sh <<< '-net nic -net user,hostname=windows10vm \' \
     && tee -a start.sh <<< '-boot d -drive file=/home/windows10/virtio-win.iso,media=cdrom \' \
     && tee -a start.sh <<< '-drive file=/home/windows10/windows10.iso,media=cdrom \' \
     && tee -a start.sh <<< '-audiodev alsa,id=snd0,out.try-poll=off -device ich9-intel-hda -device hda-output,audiodev=snd0 \' \
-    && tee -a start.sh <<< '-m 4G \' \
+    && tee -a start.sh <<< '-m 2G \' \
     && tee -a start.sh <<< '-boot menu=on \' \
     && tee -a start.sh <<< '-boot c \' \
     && tee -a start.sh <<< '-vga std \' \
