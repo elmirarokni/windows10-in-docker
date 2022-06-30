@@ -31,7 +31,7 @@ RUN wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable
 
 RUN find . -type f -name 'virtio-win*.iso' -exec sh -c 'x="{}"; mv "$x" "virtio-win.iso"' \;
 
-RUN qemu-img create -f qcow2 windows10.img 120G
+RUN qemu-img create -f qcow2 windows10.img 20G
 RUN apt install -y qemu-system-gui x11-apps
 RUN chown $(id -u):$(id -g) /dev/kvm 2>/dev/null || true  
 
